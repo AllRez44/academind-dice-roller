@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:second_app/styled_text.dart';
+import 'package:second_app/dice_roller.dart';
 
 const Alignment endAlignment = Alignment.bottomRight;
 const Alignment startAlignment = Alignment.topLeft;
@@ -7,7 +8,6 @@ const Color defaultMainColor = Colors.white;
 const Color defaultSecondaryColor = Colors.blueGrey;
 const Color defaultTextColor = Colors.white;
 // const List<Color> defaultColors = [Colors.white, Colors.blueGrey];
-const String defaultImagePath = 'assets/images/dice-1.png';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({
@@ -17,24 +17,23 @@ class GradientContainer extends StatelessWidget {
     this.mainColor = defaultMainColor,
     this.secondaryColor = defaultSecondaryColor,
     this.textColor = defaultTextColor,
-    this.imagePath = defaultImagePath,
     this.hideImage = true,
   });
 
   const GradientContainer.hello({super.key})
       : title = 'Hello World!',
+        // this.colors = defaulColors,
         mainColor = Colors.amber,
         secondaryColor = Colors.red,
         textColor = defaultTextColor,
-        imagePath = defaultImagePath,
         hideImage = true;
 
   const GradientContainer.dice({super.key})
       : title = '',
+        // this.colors = defaulColors,
         mainColor = defaultMainColor,
         secondaryColor = defaultSecondaryColor,
         textColor = defaultTextColor,
-        imagePath = defaultImagePath,
         hideImage = false;
 
   final String title;
@@ -43,7 +42,6 @@ class GradientContainer extends StatelessWidget {
   final Color mainColor;
   final Color secondaryColor;
   final Color textColor;
-  final String imagePath;
   final bool hideImage;
 
   @override
@@ -59,10 +57,8 @@ class GradientContainer extends StatelessWidget {
       child: Center(
           child: hideImage
               ? StyledText(text: title, color: textColor)
-              : Image.asset(
-                  imagePath,
-                  opacity: AlwaysStoppedAnimation(hideImage ? 0.0 : 100.0),
-                )),
+              : const DiceRoller(),
+      ),
     );
   }
 }

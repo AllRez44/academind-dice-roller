@@ -6,7 +6,7 @@ void main() {
     const MaterialApp(
       home: Scaffold(
         // backgroundColor: Colors.amber,
-        body: GradientContainer.hello()
+        body: GradientContainer.dice()
       ),
     ),
   );
